@@ -97,8 +97,8 @@
 	function drawVisualization() {
 		// Some raw data (not necessarily accurate)
 		var data = google.visualization.arrayToDataTable([
-			['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS', 'Average'],
-			['Corporate', 158, 243, 1069, 280, 760, 0],
+			['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS'],
+			['Corporate', 158, 243, 1069, 280, 760],
 			{{!-- ['Community', 0, 0, 0, 0, 0, 0],
 			['Total', 0, 0, 0, 0, 0, 0], --}}
 		]);
@@ -109,7 +109,10 @@
 			{{!-- hAxis: { title: 'Month' }, --}}
 			seriesType: 'bars',
 			series: { 5: { type: 'line' } },
-			{{!-- legend: { position: 'top', alignment: 'start' } --}}
+			chartArea: {
+				right: 100,   // set this to adjust the legend width
+				left: 50,     // set this eventually, to adjust the left margin
+			},
 		};
 
 		var chart = new google.visualization.ComboChart(document.getElementById('corporate-co2-commission'));
@@ -125,8 +128,8 @@
 	function drawVisualization() {
 		// Some raw data (not necessarily accurate)
 		var data = google.visualization.arrayToDataTable([
-			['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS', 'Average'],
-			['Corporate', 2521, 3903, 20359, 4354, 26748, 0],
+			['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS'],
+			['Corporate', 2521, 3903, 20359, 4354, 26748],
 			{{!-- ['Community', 0, 0, 0, 0, 0, 0],
 			['Total', 0, 0, 0, 0, 0, 0], --}}
 		]);
@@ -136,7 +139,12 @@
 			vAxis: { title: 'Energy (GJ)' },
 			{{!-- hAxis: { title: 'Month' }, --}}
 			seriesType: 'bars',
-			series: { 5: { type: 'line' } }
+			series: { 5: { type: 'line' } },
+			chartArea: {
+				right: 100,   // set this to adjust the legend width
+				left: 50,     // set this eventually, to adjust the left margin
+			},
+
 		};
 
 		var chart = new google.visualization.ComboChart(document.getElementById('corporate-energy-commission')); chart.draw(data, options);
@@ -151,9 +159,9 @@
 	function drawVisualization() {
 		// Some raw data (not necessarily accurate)
 		var data = google.visualization.arrayToDataTable([
-			['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS', 'Average'],
+			['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS'],
 			{{!-- ['Corporate', 0, 0, 0, 0, 0, 0], --}}
-			['Community', 13465, 13772, 52676, 20753, 49173, 0],
+			['Community', 13465, 13772, 52676, 20753, 49173],
 			{{!-- ['Total', 0, 0, 587, 0, 0, 0], --}}
 		]);
 
@@ -162,7 +170,11 @@
 			vAxis: { title: 'CO2 (Tonnes)' },
 			{{!-- hAxis: { title: 'Month' }, --}}
 			seriesType: 'bars',
-			series: { 5: { type: 'line' } }
+			series: { 5: { type: 'line' } },
+			chartArea: {
+				right: 100,   // set this to adjust the legend width
+				left: 50,     // set this eventually, to adjust the left margin
+			},
 			
 		};
 
@@ -179,10 +191,10 @@
 	function drawVisualization() {
 		// Some raw data (not necessarily accurate)
 		var data = google.visualization.arrayToDataTable([
-			['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS', 'Average'],
+			['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS'],
 			{{!-- ['Corporate', 0, 0, 0, 0, 0, 0], --}}
 			{{!-- ['Community', 0, 0, 0, 0, 0, 0], --}}
-			['Total', 13623, 14015, 53745, 21033, 49933, 0],
+			['Total', 13623, 14015, 53745, 21033, 49933],
 		]);
 
 		var options = {
@@ -190,7 +202,11 @@
 			vAxis: { title: 'CO2 (Tonnes)' },
 			{{!-- hAxis: { title: 'Month' }, --}}
 			seriesType: 'bars',
-			series: { 5: { type: 'line' } }
+			series: { 5: { type: 'line' } },
+			chartArea: {
+				right: 100,   // set this to adjust the legend width
+				left: 50,     // set this eventually, to adjust the left margin
+			},
 		};
 
 		var chart = new google.visualization.ComboChart(document.getElementById('chart_div-E'));
