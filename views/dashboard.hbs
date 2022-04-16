@@ -29,6 +29,11 @@
 		<div class="row">
 			<div class="col-sm-4">
 				<div class="card standard-card">
+					<div class="card-header">
+						<h4 class="card-title">
+							Weather Today
+						</h4>
+					</div>
 					<div class="card-body">
 						<div id="location-status"></div>
 					</div>
@@ -234,19 +239,16 @@
 var x = document.getElementById("location-status");
 function getLocation() {
   if (navigator.geolocation) {
-	  console.log('check if')
 
     navigator.geolocation.getCurrentPosition(showPosition ,  showError);
   } else {
-	  console.log('check else')
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
 
-function showPosition(position) {
-	console.log('position =>' , position )
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
+async function showPosition({coords}) {
+	const weatherData = await getWeatherData({lat:coords.latitude ,  lng: coords.longitude})
+  x.innerHTML = displayWeather(weatherData);
 }
 
 
@@ -267,5 +269,35 @@ function showError(error) {
       break;
   }
 }
+
+function displayWeather(data){
+	const difference = 273.15;
+return `<div class="row">
+	<div class="col-4">
+		<p>Current</p>
+		<h2>${Math.ceil(data.main.feels_like-difference)}<sup>o</sup><span class="fw-lighter">c</span></h2>
+
+	</div>
+	<div class="col-4">
+		<p>High</p>
+		<h2>${Math.ceil(data.main.temp_max-difference)}<sup>o</sup> <span class="fw-lighter">c</span></h2>
+	</div>
+	<div class="col-4">
+		<p>Low</p>
+		<h2>${Math.ceil(data.main.temp_min-difference)}<sup>o</sup> <span class="fw-lighter">c</span></h2>
+
+	</div>
+	<div class="col-12">
+		<p class="mt-4">${data.weather.length ? data.weather[0].main:'unknown' }</p>
+	</div>
+</div>`;
+}
+
+async function getWeatherData(position){
+	const request =  await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${position.lat}&lon=${position.lng}&appid=87bf53963ceee8240466706e4bdcf131`);
+	const response=  await  request.json();
+	return response;
+}
 getLocation();
+
 </script>
