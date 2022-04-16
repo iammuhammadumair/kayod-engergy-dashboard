@@ -1,200 +1,271 @@
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-      
 <div class="dashboard d-flex">
 
-  <article class="d-flex flex-column">
-    <ul>
-      <li class="paddingbot">
-        <a href="">Dashboard</a>
-      </li>
+	<article class="d-flex flex-column">
+		<ul>
+			<li class="paddingbot">
+				<a href="">Dashboard</a>
+			</li>
 
-      <li class="paddingtop bordertop">
-        <a href="">Total</a>
-      </li>
-      <li>
-        <a href="">Corporate</a>
-      </li>
-      <li class="paddingbot">
-        <a href="">Community</a>
-      </li>
+			<li class="paddingtop bordertop">
+				<a href="">Total</a>
+			</li>
+			<li>
+				<a href="">Corporate</a>
+			</li>
+			<li class="paddingbot">
+				<a href="">Community</a>
+			</li>
 
-      <li class="paddingbot paddingtop bordertop">
-        <a href="/reports">Reports</a>
-      </li>
+			<li class="paddingbot paddingtop bordertop">
+				<a href="/reports">Reports</a>
+			</li>
 
-    </ul>
-  </article>
+		</ul>
+	</article>
 
-  <div class="dashinternal">
-    {{! <h2>Dashboard</h2> }}
-    <section class="item1" style="width:400px;height:235;">
-    {{!-- <section class="item1"> --}}
-      
-    </section>
-    <section class="item2" style="width:1230px;height:235;">
-    {{!-- <section class="item2"> --}}
-         <div id="chart_div-B">
+	<div class="container-fluid mt-5">
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="card standard-card">
+					<div class="card-body">
+						<div id="location-status"></div>
+					</div>
+				</div>
+				<div class="card standard-card mt-4">
+					<div class="card-body">
 
-         </div>
-    </section>
-    <section class="item3" style="width:400px;height:520;">
-       <div id="chart_div-C"> 
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<div class="card standard-card">
 
-         </div>
-    </section>
-    <section class="item4" style="width:1237px;height:300;">
-       <div id="chart_div-D"> 
+					<div class="row card-body">
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-body ">
+									<div id="corporate-co2-commission"> </div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-body">
+									<div id="corporate-energy-commission"> </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
-       </div>
-    </section>
-    <section class="item5" style="width:400px;height:300;">
-       <div id="chart_div-E"> 
+				<div class="card mt-4 standard-card">
+					<div class="row card-body">
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-body">
+									<div id="chart_div-D"> </div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-body">
+									<div id="chart_div-E"> </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-       </div>
-    </section>
-  </div>
-
+	</div>
 </div>
 
-// Corporate: CO2 Emmision 
+{{!-- // Corporate: CO2 Emmision --}}
 <script>
-google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawVisualization);
+	google.charts.load('current', { 'packages': ['corechart'] });
+	google.charts.setOnLoadCallback(drawVisualization);
 
-      function drawVisualization() {
-        // Some raw data (not necessarily accurate)
-        var data = google.visualization.arrayToDataTable([
-          ['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS', 'Average'],
-          ['Corporate', 158,      243,         1069,             280,           760,      0],
-          ['Community',  0,      0,        0,             0,          0,      0],
-          ['Total',  0,      0,        0,             0,           0,      0],
-        ]);
+	function drawVisualization() {
+		// Some raw data (not necessarily accurate)
+		var data = google.visualization.arrayToDataTable([
+			['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS', 'Average'],
+			['Corporate', 158, 243, 1069, 280, 760, 0],
+			{{!-- ['Community', 0, 0, 0, 0, 0, 0],
+			['Total', 0, 0, 0, 0, 0, 0], --}}
+		]);
 
-        var options = {
-          title : 'CO2 Emmision',
-          vAxis: {title: 'Energy (GJ)'},
-          hAxis: {title: 'Month'},
-          seriesType: 'bars',
-          series: {5: {type: 'line'}}
-        };
+		var options = {
+			title: 'CO2 Emmision',
+			vAxis: { title: 'Energy (GJ)' },
+			{{!-- hAxis: { title: 'Month' }, --}}
+			seriesType: 'bars',
+			series: { 5: { type: 'line' } },
+			{{!-- legend: { position: 'top', alignment: 'start' } --}}
+		};
 
-        var chart = new google.visualization.ComboChart(document.getElementById('chart_div-B'));
-        chart.draw(data, options);
-      }
+		var chart = new google.visualization.ComboChart(document.getElementById('corporate-co2-commission'));
+		chart.draw(data, options);
+	}
 </script>
 
-// Corporate: Energy Emmision 
+{{!-- // Corporate: Energy Emmision --}}
 <script>
-google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawVisualization);
+	google.charts.load('current', { 'packages': ['corechart'] });
+	google.charts.setOnLoadCallback(drawVisualization);
 
-      function drawVisualization() {
-        // Some raw data (not necessarily accurate)
-        var data = google.visualization.arrayToDataTable([
-          ['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS', 'Average'],
-          ['Corporate', 2521,      3903,         20359,             4354,           26748,      0],
-          ['Community',  0,      0,        0,             0,          0,      0],
-          ['Total',  0,      0,        0,             0,           0,      0],
-        ]);
+	function drawVisualization() {
+		// Some raw data (not necessarily accurate)
+		var data = google.visualization.arrayToDataTable([
+			['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS', 'Average'],
+			['Corporate', 2521, 3903, 20359, 4354, 26748, 0],
+			{{!-- ['Community', 0, 0, 0, 0, 0, 0],
+			['Total', 0, 0, 0, 0, 0, 0], --}}
+		]);
 
-        var options = {
-          title : 'Energy Emmision',
-          vAxis: {title: 'Energy (GJ)'},
-          hAxis: {title: 'Month'},
-          seriesType: 'bars',
-          series: {5: {type: 'line'}}-
-        };
+		var options = {
+			title: 'Energy Emmision',
+			vAxis: { title: 'Energy (GJ)' },
+			{{!-- hAxis: { title: 'Month' }, --}}
+			seriesType: 'bars',
+			series: { 5: { type: 'line' } }
+		};
 
-        var chart = new google.visualization.ComboChart(document.getElementById('chart_div-C'));
-        chart.draw(data, options);
-      }
+		var chart = new google.visualization.ComboChart(document.getElementById('corporate-energy-commission')); chart.draw(data, options);
+	}
 </script>
 
-// Community
+{{!-- // Community --}}
 <script>
-google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawVisualization);
+	google.charts.load('current', { 'packages': ['corechart'] });
+	google.charts.setOnLoadCallback(drawVisualization);
 
-      function drawVisualization() {
-        // Some raw data (not necessarily accurate)
-        var data = google.visualization.arrayToDataTable([
-          ['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS', 'Average'],
-          ['Corporate',  0,      0,        0,            0,           0,      0],
-          ['Community',  13465,      13772,        52676,             20753,          49173,      0],
-          ['Total',  0,      0,        587,             0,           0,      0],
-        ]);
+	function drawVisualization() {
+		// Some raw data (not necessarily accurate)
+		var data = google.visualization.arrayToDataTable([
+			['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS', 'Average'],
+			{{!-- ['Corporate', 0, 0, 0, 0, 0, 0], --}}
+			['Community', 13465, 13772, 52676, 20753, 49173, 0],
+			{{!-- ['Total', 0, 0, 587, 0, 0, 0], --}}
+		]);
 
-        var options = {
-          title : 'CO2 Emmision',
-          vAxis: {title: 'CO2 (Tonnes)'},
-          hAxis: {title: 'Month'},
-          seriesType: 'bars',
-          series: {5: {type: 'line'}}
-        };
+		var options = {
+			title: 'CO2 Emmision',
+			vAxis: { title: 'CO2 (Tonnes)' },
+			{{!-- hAxis: { title: 'Month' }, --}}
+			seriesType: 'bars',
+			series: { 5: { type: 'line' } }
+			
+		};
 
-        var chart = new google.visualization.ComboChart(document.getElementById('chart_div-D'));
-        chart.draw(data, options);
-      }
+		var chart = new google.visualization.ComboChart(document.getElementById('chart_div-D'));
+		chart.draw(data, options);
+	}
 </script>
 
-// Total
+{{!-- // Total --}}
 <script>
-google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawVisualization);
+	google.charts.load('current', { 'packages': ['corechart'] });
+	google.charts.setOnLoadCallback(drawVisualization);
 
-      function drawVisualization() {
-        // Some raw data (not necessarily accurate)
-        var data = google.visualization.arrayToDataTable([
-          ['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS', 'Average'],
-          ['Corporate',  0,      0,        0,            0,           0,      0],
-          ['Community',  0,      0,        0,             0,          0,      0],
-          ['Total',  13623,      14015,        53745,             21033,           49933,      0],
-        ]);
+	function drawVisualization() {
+		// Some raw data (not necessarily accurate)
+		var data = google.visualization.arrayToDataTable([
+			['Townships', 'Carling', 'Mckellar', 'Seguin', 'TOA', 'TOPS', 'Average'],
+			{{!-- ['Corporate', 0, 0, 0, 0, 0, 0], --}}
+			{{!-- ['Community', 0, 0, 0, 0, 0, 0], --}}
+			['Total', 13623, 14015, 53745, 21033, 49933, 0],
+		]);
 
-        var options = {
-          title : 'CO2 Emmision',
-          vAxis: {title: 'CO2 (Tonnes)'},
-          hAxis: {title: 'Month'},
-          seriesType: 'bars',
-          series: {5: {type: 'line'}}
-        };
+		var options = {
+			title: 'CO2 Emmision',
+			vAxis: { title: 'CO2 (Tonnes)' },
+			{{!-- hAxis: { title: 'Month' }, --}}
+			seriesType: 'bars',
+			series: { 5: { type: 'line' } }
+		};
 
-        var chart = new google.visualization.ComboChart(document.getElementById('chart_div-E'));
-        chart.draw(data, options);
-      }
+		var chart = new google.visualization.ComboChart(document.getElementById('chart_div-E'));
+		chart.draw(data, options);
+	}
 </script>
 
+{{!-- <script>
+	google.charts.load('current', { packages: ['corechart', 'bar'] });
+	google.charts.setOnLoadCallback(drawBasic);
+
+	function drawBasic() {
+
+		var data = google.visualization.arrayToDataTable([
+			['City', '2010 Population',],
+			['New York City, NY', 8175000],
+			['Los Angeles, CA', 3792000],
+			['Chicago, IL', 2695000],
+			['Houston, TX', 2099000],
+			['Philadelphia, PA', 1526000]
+		]);
+
+		var options = {
+			title: 'Population of Largest U.S. Cities',
+			chartArea: {
+				width: '50%',
+				height: '100%'
+			},
+			hAxis: {
+				title: 'Total Population',
+				minValue: 0
+			},
+			vAxis: {
+				title: 'City'
+			}
+		};
+
+		var chart = new google.visualization.BarChart(document.getElementById('chart_div3'));
+
+		chart.draw(data, options);
+	}
+</script> --}}
+
+
 <script>
-    google.charts.load('current', {packages: ['corechart', 'bar']});
-google.charts.setOnLoadCallback(drawBasic);
+var x = document.getElementById("location-status");
+function getLocation() {
+  if (navigator.geolocation) {
+	  console.log('check if')
 
-function drawBasic() {
+    navigator.geolocation.getCurrentPosition(showPosition ,  showError);
+  } else {
+	  console.log('check else')
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
 
-      var data = google.visualization.arrayToDataTable([
-        ['City', '2010 Population',],
-        ['New York City, NY', 8175000],
-        ['Los Angeles, CA', 3792000],
-        ['Chicago, IL', 2695000],
-        ['Houston, TX', 2099000],
-        ['Philadelphia, PA', 1526000]
-      ]);
+function showPosition(position) {
+	console.log('position =>' , position )
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
 
-      var options = {
-        title: 'Population of Largest U.S. Cities',
-        chartArea: {width: '50%',
-                    height: '100%'},
-        hAxis: {
-          title: 'Total Population',
-          minValue: 0
-        },
-        vAxis: {
-          title: 'City'
-        }
-      };
 
-      var chart = new google.visualization.BarChart(document.getElementById('chart_div3'));
 
-      chart.draw(data, options);
-    }
-</>
+function showError(error) {
+  switch(error.code) {
+    case error.PERMISSION_DENIED:
+      x.innerHTML = "User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML = "Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML = "The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML = "An unknown error occurred."
+      break;
+  }
+}
+getLocation();
+</script>

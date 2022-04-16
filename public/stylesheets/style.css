@@ -1,202 +1,211 @@
 body {
-  font: 24px "Segoe UI", Helvetica, Arial, sans-serif;
-  overflow: hidden;
+	font: 24px "Segoe UI", Helvetica, Arial, sans-serif;
+	overflow: hidden;
 }
 
 body,
 nav a,
 nav li a,
 article a {
-  color: #6d6d6d !important;
+	color: #6d6d6d !important;
 }
 
 h1 {
-  font: 60px "Segoe UI", Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  color: rgb(30, 30, 30);
+	font: 60px "Segoe UI", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	color: rgb(30, 30, 30);
 }
 
 h2 {
-  font: 45px "Segoe UI", Helvetica, Arial, sans-serif;
-  font-weight: bold;
+	font: 45px "Segoe UI", Helvetica, Arial, sans-serif;
+	font-weight: bold;
 }
 
 h4 {
-  font: 24px "Segoe UI", Helvetica, Arial, sans-serif;
-  font-weight: bold;
+	font: 24px "Segoe UI", Helvetica, Arial, sans-serif;
+	font-weight: bold;
 }
 
 a {
-  font: 20px "Segoe UI", Helvetica, Arial, sans-serif;
+	font: 20px "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
 nav a,
 nav li a {
-  font: 20px "Segoe UI", Helvetica, Arial, sans-serif;
+	font: 20px "Segoe UI", Helvetica, Arial, sans-serif;
 }
 
 nav li {
-  padding: 0 10px 0 10px;
+	padding: 0 10px 0 10px;
 }
 
 nav {
-  background: #fff;
-  box-shadow: 0px 1px 5px #b4b4b4;
-  padding: 0 20px 0 20px;
-  z-index: 2;
-  min-height: 80px;
+	background: #fff;
+	box-shadow: 0px 1px 5px #b4b4b4;
+	padding: 0 20px 0 20px;
+	z-index: 2;
+	min-height: 80px;
 }
 
 .navbar-brand > img {
-  padding-right: 10px;
+	padding-right: 10px;
 }
 
 .bar1,
 .bar2,
 .bar3 {
-  width: 35px;
-  height: 5px;
-  background-color: #6d6d6dc5;
-  margin: 6px 0;
+	width: 35px;
+	height: 5px;
+	background-color: #6d6d6dc5;
+	margin: 6px 0;
 }
 
 svg {
-  max-width: 600px;
+	max-width: 600px;
 }
 
 .container {
-  width: 100vw;
-  position: absolute;
-  top: 80px;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
+	width: 100vw;
+	position: absolute;
+	top: 80px;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
 
 .container-content > * {
-  padding-bottom: 20px;
+	padding-bottom: 20px;
 }
 
 .container a {
-  padding: 0 40px 0 40px;
-  text-decoration: none;
-  color: white;
-  padding: 10px 35px 10px 35px;
-  border-radius: 10px;
+	padding: 0 40px 0 40px;
+	text-decoration: none;
+	color: white;
+	padding: 10px 35px 10px 35px;
+	border-radius: 10px;
 }
 
 .container a:nth-child(1) {
-  background-color: #43824b;
+	background-color: #43824b;
 }
 
 .container a:nth-child(2) {
-  background-color: #1fbae0;
-  margin-left: 50px;
+	background-color: #1fbae0;
+	margin-left: 50px;
 }
 
 .container img {
-  border-radius: 30px;
-}
-
-.dashboard {
-  background-color: #e9eee0;
-  width: 100vw;
-  top: 90px;
-  bottom: 0;
-  position: absolute;
-  left: 0;
+	border-radius: 30px;
 }
 
 article {
-  width: 225px;
-  background-color: white;
-  padding: 30px 30px 0 0;
+	width: 225px;
+	background-color: white;
+	padding: 30px 30px 0 0;
 }
 
 article a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 article li {
-  list-style: none;
-  padding: 10px 0px 10px 5px;
+	list-style: none;
+	padding: 10px 0px 10px 5px;
 }
-
-.dashinternal {
-  display: grid;
-  grid-template-areas:
-    "weather compared compared compared"
-    "sector compared compared compared"
-    "sector outage outage outage";
-  gap: 20px;
-  padding: 30px;
-  width: 100%;
-}
-
-.item1 {
-  grid-area: weather;
-}
-.item2 {
-  grid-area: compared;
-}
-.item3 {
-  grid-area: sector;
-}
-.item4 {
-  grid-area: outage;
-}
-
-.dashinternal section {
-  background-color: white;
-  padding: 20px 0;
-  border-radius: 20px;
-  box-shadow: 0px 0px 5px #b4b4b4;
-}
-
 .reports {
-  padding: 50px;
-  width: 100%;
+	padding: 50px;
+	width: 100%;
 }
 
 .reports section {
-  height: 100%;
-  width: 100%;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0px 0px 5px #b4b4b4;
-  display: flex;
-  flex-direction: column;
+	height: 100%;
+	width: 100%;
+	background: #fff;
+	border-radius: 20px;
+	box-shadow: 0px 0px 5px #b4b4b4;
+	display: flex;
+	flex-direction: column;
 }
 
 .reports section ul {
-  display: flex;
-  padding: 10px;
-  margin: 0 auto 0 auto;
-  width: 95%;
-  border-bottom: 1px solid #b4b4b4;
-  list-style: none;
+	display: flex;
+	padding: 10px;
+	margin: 0 auto 0 auto;
+	width: 95%;
+	border-bottom: 1px solid #b4b4b4;
+	list-style: none;
 }
 
-.reports section ul li{
-  margin: 0 auto 0 auto;
-  width: 95%;
+.reports section ul li {
+	margin: 0 auto 0 auto;
+	width: 95%;
 }
 
 .reports button {
-  width: fit-content;
-  margin-top: 10px;
-  margin-left: 2.5%;
+	width: fit-content;
+	margin-top: 10px;
+	margin-left: 2.5%;
 }
 
 .bordertop {
-  border-top: 1px solid #b4b4b4;
+	border-top: 1px solid #b4b4b4;
 }
 
 .paddingbot {
-  padding-bottom: 15px;
+	padding-bottom: 15px;
 }
 
 .paddingtop {
-  padding-top: 15px;
+	padding-top: 15px;
+}
+
+/* Dashboard Styling */
+
+
+.dashboard {
+	background-color: #e9eee0;
+	width: 100vw;
+	top: 90px;
+	bottom: 0;
+	position: absolute;
+	left: 0;
+}
+
+/* .dashinternal {
+	display: grid;
+	grid-template-areas:
+		"weather compared compared compared"
+		"sector compared compared compared"
+		"sector outage outage outage";
+	gap: 20px;
+	padding: 30px;
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+} */
+
+/* .item1 {
+	grid-area: weather;
+}
+.item2 {
+	grid-area: compared;
+}
+.item3 {
+	grid-area: sector;
+}
+.item4 {
+	grid-area: outage;
+} */
+
+/* .dashinternal section {
+	background-color: white;
+	padding: 20px 0;
+	border-radius: 20px;
+	box-shadow: 0px 0px 5px #b4b4b4;
+} */
+
+.dashboard .standard-card {
+	height: calc(37vh);
 }
